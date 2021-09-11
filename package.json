@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "serve": "http-server website",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress open",
+    "test:ci": "cypress run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "^8.3.0",
+    "cypress-cucumber-preprocessor": "^4.2.0",
     "http-server": "^13.0.1"
   }
 }
