@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "http-server website",
+    "serve": "http-server -p 8080 website",
     "test": "cypress open",
     "test:ci": "cypress run"
   },
@@ -12,8 +12,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^8.3.0",
+    "concurrently": "^6.2.1",
+    "cypress": "^8.3.1",
     "cypress-cucumber-preprocessor": "^4.2.0",
-    "http-server": "^13.0.1"
+    "http-server": "^13.0.1",
+    "wait-on": "^6.0.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/step_definitions"
   }
 }
