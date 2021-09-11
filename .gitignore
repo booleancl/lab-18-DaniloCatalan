@@ -1,3 +1,2 @@
 node_modules
-cypress/videos
-cypress/screenshots
+cypress/videos/website/home.feature.mp4
