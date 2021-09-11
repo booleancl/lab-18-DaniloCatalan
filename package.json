@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "http-server -p 8080 website",
+    "serve": "http-server website",
     "test": "cypress open",
     "test:ci": "cypress run"
   },
