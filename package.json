@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "http-server website",
     "test": "cypress open",
-    "test:ci": "cypress run"
+    "test:ci": "concurrently 'npm run serve' 'wait-on http://localhost:8080 && cypress run' --kill-others --success first"
   },
   "keywords": [],
   "author": "",
