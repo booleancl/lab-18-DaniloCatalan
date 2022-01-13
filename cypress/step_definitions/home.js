@@ -1,6 +1,6 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
-const url = 'http://localhost:8080'
+const url = 'http://localhost:4000'
 Given('the user in the homepage', () => {
   cy.visit(url)
 })
