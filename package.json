@@ -4,13 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "http-server website",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "http-server -p 4000 website",
+    "test": "cypress open",
+    "test:ci": "concurrently 'npm run serve' 'wait-on http://localhost:4000 && cypress run' --kill-others --success first"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "http-server": "^13.0.1"
+    "concurrently": "^6.2.1",
+    "cypress": "^8.3.1",
+    "cypress-cucumber-preprocessor": "^4.2.0",
+    "http-server": "^13.0.1",
+    "wait-on": "^6.0.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/step_definitions"
   }
 }

@@ -100,14 +100,14 @@
     <h2>Deja tu comentario</h2>
 
     <form>
-      <div class="form-group">
+      <div class="form-group" data-cy="email">
         <label for="exampleFormControlInput1">Tu correo</label>
-        <input type="email" class="form-control" placeholder="name@example.com">
+        <input type="email" class="form-control" placeholder="name@example.com" required data-pristine-required-message="Este campo es requerido">
       </div>
 
       <div class="form-group">
         <label for="exampleFormControlTextarea1">Comentario</label>
-        <textarea class="form-control" rows="3"></textarea>
+        <textarea class="form-control" rows="3" required data-pristine-required-message="Este campo es requerido"></textarea>
       </div>
 
       <button type="submit" class="btn btn-primary mb-2">Comentar</button>
@@ -124,7 +124,9 @@
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/pristinejs@0.1.9/dist/pristine.min.js"></script>
   <script>
+    
     const Website = {
       carouselWrapper: $('#landingCarousel'),
 
@@ -145,6 +147,16 @@
 
       init() {
         this.carouselWrapper.on('slid.bs.carousel', () => this.setActiveName())
+        const form = document.querySelector("form")
+
+        // create the pristine instance
+        const pristine = new Pristine(form);
+        form.addEventListener('submit', (e)=> {
+          e.preventDefault();
+          
+          // check if the form is valid
+          const valid = pristine.validate(); // returns true or false
+        });
 
         this.setActiveName()
       }
